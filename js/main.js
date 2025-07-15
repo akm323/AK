@@ -274,40 +274,116 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to handle menu toggle visibility based on screen size
     function handleMenuToggle() {
         const navLinks = document.querySelector('.nav ul');
-        const isMobile = window.getComputedStyle(navLinks).display === 'none';
+        const isMobile = window.innerWidth <= 991; // Match the CSS breakpoint
+        const contactLink = document.querySelector('.nav ul li:last-child');
         
-        // If we're on mobile and no toggle exists, create it
-        if (isMobile && !menuToggle) {
-            menuToggle = document.createElement('div');
-            menuToggle.className = 'menu-toggle';
-            menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-            headerContent.appendChild(menuToggle);
-            
-            // Toggle menu on click
-            menuToggle.addEventListener('click', function() {
-                nav.classList.toggle('active');
-                const icon = menuToggle.querySelector('i');
-                icon.classList.toggle('fa-bars');
-                icon.classList.toggle('fa-times');
-            });
-            
-            // Close menu when clicking a nav link
-            document.querySelectorAll('.nav a').forEach(link => {
-                link.addEventListener('click', () => {
-                    nav.classList.remove('active');
-                    const icon = menuToggle?.querySelector('i');
+        // If we're on mobile
+        if (isMobile) {
+            // If no toggle exists, create it
+            if (!menuToggle) {
+                // Create container for mobile controls
+                const mobileControls = document.createElement('div');
+                mobileControls.className = 'mobile-controls';
+                
+                // Create contact button
+                const contactButton = document.createElement('a');
+                contactButton.href = '#contact';
+                contactButton.className = 'mobile-contact-btn';
+                contactButton.textContent = 'Contact Me';
+                contactButton.addEventListener('click', closeMenu);
+                
+                // Create menu toggle button
+                menuToggle = document.createElement('button');
+                menuToggle.className = 'menu-toggle';
+                menuToggle.setAttribute('aria-label', 'Toggle menu');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                
+                // Append buttons to container
+                mobileControls.appendChild(contactButton);
+                mobileControls.appendChild(menuToggle);
+                
+                // Find the header-content and append the controls
+                const headerContent = document.querySelector('.header-content');
+                if (headerContent) {
+                    // Create a container for the right-aligned controls
+                    const controlsContainer = document.createElement('div');
+                    controlsContainer.className = 'header-right';
+                    controlsContainer.appendChild(mobileControls);
+                    headerContent.appendChild(controlsContainer);
+                    
+                    // Hide the contact link in the mobile menu
+                    if (contactLink) {
+                        contactLink.style.display = 'none';
+                    }
+                }
+                
+                // Toggle menu on click
+                menuToggle.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    nav.classList.toggle('active', !isExpanded);
+                    const icon = this.querySelector('i');
                     if (icon) {
-                        icon.classList.add('fa-bars');
-                        icon.classList.remove('fa-times');
+                        icon.className = isExpanded ? 'fas fa-bars' : 'fas fa-times';
+                    }
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    document.body.style.overflow = isExpanded ? '' : 'hidden';
+                });
+                
+                // Close menu when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (nav.classList.contains('active') && 
+                        !e.target.closest('.nav') && 
+                        e.target !== menuToggle) {
+                        closeMenu();
                     }
                 });
-            });
+                
+                // Close menu when clicking a nav link
+                document.querySelectorAll('.nav a').forEach(link => {
+                    link.addEventListener('click', closeMenu);
+                });
+                
+                // Close menu on escape key
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && nav.classList.contains('active')) {
+                        closeMenu();
+                    }
+                });
+            } else if (contactLink) {
+                // Ensure contact link is hidden in mobile view
+                contactLink.style.display = 'none';
+            }
         } 
-        // If we're not on mobile and toggle exists, remove it
-        else if (!isMobile && menuToggle) {
-            menuToggle.remove();
-            menuToggle = null;
+        // If we're on desktop
+        else {
+            // If toggle exists, remove it
+            if (menuToggle) {
+                const headerRight = document.querySelector('.header-right');
+                if (headerRight) {
+                    headerRight.remove();
+                }
+                menuToggle = null;
+            }
+            
+            // Show the contact link in the main nav
+            if (contactLink) {
+                contactLink.style.display = '';
+            }
+        }
+    }
+
+    // Function to close the mobile menu
+    function closeMenu() {
+        if (menuToggle) {
             nav.classList.remove('active');
+            const icon = menuToggle.querySelector('i');
+            if (icon) {
+                icon.className = 'fas fa-bars';
+            }
+            menuToggle.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
         }
     }
 
