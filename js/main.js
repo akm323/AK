@@ -266,29 +266,56 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize background elements
     generateTinyDots();
 
-    // Mobile menu toggle
-    const menuToggle = document.createElement('div');
-    menuToggle.className = 'menu-toggle';
-    menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-    document.querySelector('.header .container').appendChild(menuToggle);
-    
     const nav = document.querySelector('.nav');
     const header = document.querySelector('.header');
-    
-    menuToggle.addEventListener('click', function() {
-        nav.classList.toggle('active');
-        menuToggle.querySelector('i').classList.toggle('fa-bars');
-        menuToggle.querySelector('i').classList.toggle('fa-times');
-    });
-    
-    // Close mobile menu when clicking a nav link
-    document.querySelectorAll('.nav a').forEach(link => {
-        link.addEventListener('click', () => {
+    const headerContent = document.querySelector('.header-content');
+    let menuToggle = null;
+
+    // Function to handle menu toggle visibility based on screen size
+    function handleMenuToggle() {
+        const navLinks = document.querySelector('.nav ul');
+        const isMobile = window.getComputedStyle(navLinks).display === 'none';
+        
+        // If we're on mobile and no toggle exists, create it
+        if (isMobile && !menuToggle) {
+            menuToggle = document.createElement('div');
+            menuToggle.className = 'menu-toggle';
+            menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            headerContent.appendChild(menuToggle);
+            
+            // Toggle menu on click
+            menuToggle.addEventListener('click', function() {
+                nav.classList.toggle('active');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
+            });
+            
+            // Close menu when clicking a nav link
+            document.querySelectorAll('.nav a').forEach(link => {
+                link.addEventListener('click', () => {
+                    nav.classList.remove('active');
+                    const icon = menuToggle?.querySelector('i');
+                    if (icon) {
+                        icon.classList.add('fa-bars');
+                        icon.classList.remove('fa-times');
+                    }
+                });
+            });
+        } 
+        // If we're not on mobile and toggle exists, remove it
+        else if (!isMobile && menuToggle) {
+            menuToggle.remove();
+            menuToggle = null;
             nav.classList.remove('active');
-            menuToggle.querySelector('i').classList.add('fa-bars');
-            menuToggle.querySelector('i').classList.remove('fa-times');
-        });
-    });
+        }
+    }
+
+    // Initialize menu toggle based on initial screen size
+    handleMenuToggle();
+    
+    // Update menu toggle when window is resized
+    window.addEventListener('resize', handleMenuToggle);
     
     // Header scroll effect
     window.addEventListener('scroll', function() {
