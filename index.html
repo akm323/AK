@@ -12,6 +12,15 @@
     <script src="https://unpkg.com/three@0.132.2/examples/js/loaders/GLTFLoader.js"></script>
     <script src="https://unpkg.com/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        // Remove expanded content from index page as it will be shown in projects.html
+        document.addEventListener('DOMContentLoaded', function() {
+            const expandedContents = document.querySelectorAll('.project-expanded');
+            expandedContents.forEach(content => {
+                content.remove();
+            });
+        });
+    </script>
 </head>
 <body>
     <!-- Animated Background -->
@@ -113,13 +122,13 @@
             <div class="about-content">
                 <div class="about-text">
                     <p>I'm a passionate software developer with experience in building mobile applications, web applications and solving complex problems. My journey in tech started when I discovered my love for creating things with code.</p>
-                    <p>When I'm not coding, you can find me reading books, playing video games, or going for a walk. I believe in continuous learning and staying updated with the latest technologies and best practices in software development.</p>
+                    <p>When I'm not coding, you can find me learning about new technologies and cybersecurity, reading books, or playing video games. I believe in continuous learning and staying updated with the latest technologies and best practices in software development.</p>
                     <a href="#" class="btn btn-outline">Download CV</a>
                 </div>
                 <div class="skills-summary">
                     <div class="skill">
                         <div class="skill-info">
-                            <span>Web Development</span>
+                            <span>Mobile Development</span>
                             <span>90%</span>
                         </div>
                         <div class="progress-bar">
@@ -128,7 +137,7 @@
                     </div>
                     <div class="skill">
                         <div class="skill-info">
-                            <span>Mobile Development</span>
+                            <span>Web Development</span>
                             <span>75%</span>
                         </div>
                         <div class="progress-bar">
@@ -156,43 +165,74 @@
             <div class="skills-grid">
                 <div class="skill-card">
                     <div class="skill-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>App Development</h3>
+                    <p>I develop cross-platform mobile applications using Flutter, delivering smooth, responsive, and visually appealing user experiences. My focus is on building efficient and scalable apps that run seamlessly on both Android and iOS platforms.
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
                         <i class="fas fa-code"></i>
                     </div>
-                    <h3>Frontend</h3>
-                    <ul>
-                        <li>HTML5 & CSS3</li>
-                        <li>JavaScript (ES6+)</li>
-                        <li>React.js</li>
-                        <li>Vue.js</li>
-                        <li>Responsive Design</li>
-                    </ul>
+                    <h3>Web Development</h3>
+                    <p>Proficient in building responsive and interactive web applications using modern web technologies. I work with HTML5, CSS3, and JavaScript to create engaging user interfaces, and I leverage Python with Flask to develop robust backend services and RESTful APIs.
                 </div>
                 <div class="skill-card">
                     <div class="skill-icon">
-                        <i class="fas fa-server"></i>
+                        <i class="fas fa-laptop-code"></i>
                     </div>
-                    <h3>Backend</h3>
-                    <ul>
-                        <li>Node.js</li>
-                        <li>Python</li>
-                        <li>Java</li>
-                        <li>RESTful APIs</li>
-                        <li>Database Design</li>
-                    </ul>
+                    <h3>OS & Tools</h3>
+                    <p>Experienced in both Windows and Linux environments, with strong version control skills using Git and GitHub. I utilize Docker for containerization to ensure consistent development and deployment environments across different platforms.I’m also familiar with using virtual machines for testing and development purposes.
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <h3>Tools & More</h3>
-                    <ul>
-                        <li>Git & GitHub</li>
-                        <li>Docker</li>
-                        <li>AWS</li>
-                        <li>CI/CD</li>
-                        <li>Agile/Scrum</li>
-                    </ul>
+            </div>
+            
+            <!-- Skill Logos Section -->
+            <div class="skills-logos-container">
+                <div class="logos-row">
+                    <a href="https://dart.dev/" target="_blank" rel="noopener noreferrer">
+                        <img src="images/logos/dart.png" alt="Dart" title="Dart">
+                    </a>
+                    <a href="https://flutter.dev/" target="_blank" rel="noopener noreferrer">
+                        <img src="images/logos/flutter.png" alt="Flutter" title="Flutter">
+                    </a>
+                    <a href="https://firebase.google.com/" target="_blank" rel="noopener noreferrer">
+                        <img src="images/logos/firebase.png" alt="Firebase" title="Firebase">
+                    </a>
+                    <a href="https://www.java.com/" target="_blank" rel="noopener noreferrer">
+                        <img src="images/logos/java.png" alt="Java" title="Java">
+                    </a>
+                    <a href="https://www.python.org/" target="_blank" rel="noopener noreferrer">
+                        <img src="images/logos/python.png" alt="Python" title="Python">
+                    </a>
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener noreferrer">
+                        <img src="images/logos/html.png" alt="HTML" title="HTML">
+                    </a>
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener noreferrer">
+                        <img src="images/logos/css.png" alt="CSS" title="CSS">
+                    </a>
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer">
+                        <img src="images/logos/javascript.png" alt="JavaScript" title="JavaScript">
+                    </a>
+                    <a href="https://flask.palletsprojects.com/" target="_blank" rel="noopener noreferrer">
+                        <img src="images/logos/flask-removebg-preview.png" alt="Flask" title="Flask">
+                    </a>
+                    <a href="https://www.microsoft.com/windows" target="_blank" rel="noopener noreferrer">
+                        <img src="images/logos/windows-11.png" alt="Windows" title="Windows">
+                    </a>
+                    <a href="https://www.linux.org/" target="_blank" rel="noopener noreferrer">
+                        <img src="images/logos/linux.png" alt="Linux" title="Linux">
+                    </a>
+                    <a href="https://git-scm.com/" target="_blank" rel="noopener noreferrer">
+                        <img src="images/logos/git.png" alt="Git" title="Git">
+                    </a>
+                    <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
+                        <img src="images/logos/github.png" alt="GitHub" title="GitHub">
+                    </a>
+                    <a href="https://www.docker.com/" target="_blank" rel="noopener noreferrer">
+                        <img src="images/logos/docker.png" alt="Docker" title="Docker">
+                    </a>
                 </div>
+            </div>
             </div>
         </div>
     </section>
@@ -202,63 +242,210 @@
         <div class="container">
             <h2 class="section-title">Featured Projects</h2>
             <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://picsum.photos/400/250?random=1" alt="Project 1">
-                    </div>
-                    <div class="project-info">
-                        <h3>E-commerce Platform</h3>
-                        <p>A full-stack e-commerce solution with user authentication, product catalog, and payment integration.</p>
-                        <div class="project-tech">
-                            <span>React</span>
-                            <span>Node.js</span>
-                            <span>MongoDB</span>
+                <!-- Project 1 -->
+                <div class="project-card" id="server-log-analysis">
+                    <div class="project-card-inner">
+                        <div class="project-image">
+                            <img src="images/projects/sla/dashboard1.png" alt="Project 1">
                         </div>
-                        <div class="project-links">
-                            <a href="#" class="btn btn-small"><i class="fab fa-github"></i> Code</a>
-                            <a href="#" class="btn btn-small btn-outline">Live Demo</a>
+                        <div class="project-info">
+                            <h3>Server Log Analysis</h3>
+                            <p>Server Log Analysis is a web application that allows users to analyze and visualize server logs in real-time.</p>
+                            <div class="project-tech">
+                                <span>Python</span>
+                                <span>Flask</span>
+                                <span>SQLAlchemy</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/akm323/server-log-analysis" class="btn btn-small" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> Code</a>
+                                <a href="projects.html#server-log-analysis" class="btn btn-small btn-outline">Show More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-expanded">
+                        <div class="project-gallery">
+                            <div class="gallery-main">
+                                <img src="images/projects/sla/dashboard1.png" alt="Dashboard 1" class="active" data-ratio="wide">
+                            </div>
+                            <div class="gallery-thumbnails">
+                                <button class="gallery-nav-arrow prev" aria-label="Previous">❮</button>
+                                <div class="gallery-thumbnails-container">
+                                    <img src="images/projects/sla/sla_login.png" alt="login" class="active">
+                                    <img src="images/projects/sla/dashboard1.png" alt="Dashboard 1" data-ratio="wide">
+                                    <img src="images/projects/sla/dashboard2.png" alt="Dashboard 2" data-ratio="wide">
+                                    <img src="images/projects/sla/dashboard3.png" alt="Dashboard 3" data-ratio="wide">
+                                    <img src="images/projects/sla/dashboard4.png" alt="Dashboard 4" data-ratio="wide">
+                                    <img src="images/projects/sla/dashboard5.png" alt="Dashboard 5" data-ratio="wide">
+                                    <img src="images/projects/sla/main_screen.png" alt="Main Screen">
+                                    <img src="images/projects/sla/trackip_screen.png" alt="Track IP Screen">
+                                    <img src="images/projects/sla/trackurl_screen.png" alt="Track URL Screen">
+                                    <img src="images/projects/sla/manage_users.png" alt="Manage Users">
+                                </div>
+                                <button class="gallery-nav-arrow next" aria-label="Next">❯</button>
+                            </div>
+                        </div>
+                        <div class="project-details">
+                            <h3>Server Log Analysis</h3>
+                            <p>Server Log Analysis is a comprehensive web application designed to help system administrators and developers monitor and analyze server logs in real-time. The application provides powerful visualization tools and analytics to identify patterns, troubleshoot issues, and optimize server performance.</p>
+                            <h4>Features:</h4>
+                            <ul>
+                                <li>Real-time log monitoring and analysis</li>
+                                <li>Interactive dashboards with customizable widgets</li>
+                                <li>Advanced search and filtering capabilities</li>
+                                <li>User authentication and role-based access control</li>
+                            </ul>
+                            <div class="project-tech">
+                                <span>Python</span>
+                                <span>Flask</span>
+                                <span>SQLAlchemy</span>
+                                <span>JavaScript</span>
+                                <span>Plotly</span>
+                                <span>Pandas</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/akm323/server-log-analysis" class="btn btn-small" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View on GitHub</a>
+                                <button class="btn btn-small btn-outline toggle-expand">Show Less</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://picsum.photos/400/250?random=2" alt="Project 2">
-                    </div>
-                    <div class="project-info">
-                        <h3>Task Management App</h3>
-                        <p>An intuitive task management application with drag-and-drop functionality and team collaboration features.</p>
-                        <div class="project-tech">
-                            <span>Vue.js</span>
-                            <span>Firebase</span>
-                            <span>Vuex</span>
+
+                <!-- Project 2 -->
+                <div class="project-card" id="amaras-curse">
+                    <div class="project-card-inner">
+                        <div class="project-image">
+                            <img src="images/projects/amara/w1.jpg" alt="Project 2">
                         </div>
-                        <div class="project-links">
-                            <a href="#" class="btn btn-small"><i class="fab fa-github"></i> Code</a>
-                            <a href="#" class="btn btn-small btn-outline">Live Demo</a>
+                        <div class="project-info">
+                            <h3>Amara's Curse - AR Puzzle Game</h3>
+                            <p>Amara's Curse is an AR puzzle game where players must solve puzzles to progress through the game.</p>
+                            <div class="project-tech">
+                                <span>Dart</span>
+                                <span>Flutter</span>
+                                <span>ARCore</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/shegzibar/Amara" class="btn btn-small" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> Code</a>
+                                <a href="projects.html#amaras-curse" class="btn btn-small btn-outline">Show More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-expanded">
+                        <div class="project-gallery">
+                            <div class="gallery-main">
+                                <img src="images/projects/amara/home_screen.jpeg" alt="Dashboard" class="active">
+                            </div>
+                            <div class="gallery-thumbnails">
+                                <button class="gallery-nav-arrow prev" aria-label="Previous">❮</button>
+                                <div class="gallery-thumbnails-container">
+                                    <img src="images/projects/amara/home_screen.jpeg" alt="Dashboard" class="active">
+                                    <img src="images/projects/amara/home_screen2.jpeg" alt="Home Screen">
+                                    <img src="images/projects/amara/ar_screen2.jpeg" alt="AR Screen">
+                                    <img src="images/projects/amara/ar_screen.jpeg" alt="AR Screen">
+                                    <img src="images/projects/amara/screen2.jpeg" alt="Choose Screen">
+                                </div>
+                                <button class="gallery-nav-arrow next" aria-label="Next">❯</button>
+                            </div>
+                        </div>
+                        <div class="project-details">
+                            <h3>Amara's Curse - AR Puzzle Game</h3>
+                            <p>Amara's Curse is an innovative Augmented Reality puzzle game that transports players to ancient Nubia (320 BCE). As Amara, a scribe from the fallen kingdom of Meroë, players must solve intricate riddles and make crucial decisions that shape the narrative. The game combines historical elements with AR technology for an immersive experience.</p>
+                            <h4>Features:</h4>
+                            <ul>
+                                <li>Interactive AR puzzles and hieroglyphic decryption</li>
+                                <li>Branching storyline with multiple endings</li>
+                                <li>Voice command integration for hands-free gameplay</li>
+                                <li>Historical Nubian setting with authentic cultural elements</li>
+                            </ul>
+                            <div class="project-tech">
+                                <span>Dart</span>
+                                <span>Flutter</span>
+                                <span>ARCore</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/shegzibar/Amara" class="btn btn-small" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View on GitHub</a>
+                                <button class="btn btn-small btn-outline toggle-expand">Show Less</button>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- Project 3 -->
                 <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://picsum.photos/400/250?random=3" alt="Project 3">
-                    </div>
-                    <div class="project-info">
-                        <h3>AI-Powered Chatbot</h3>
-                        <p>A conversational AI chatbot that helps users find information and complete tasks through natural language processing.</p>
-                        <div class="project-tech">
-                            <span>Python</span>
-                            <span>TensorFlow</span>
-                            <span>Flask</span>
+                    <div class="project-card-inner">
+                        <div class="project-image">
+                            <img src="images/projects/workout/weighted.jpg" alt="Project 3">
                         </div>
-                        <div class="project-links">
-                            <a href="#" class="btn btn-small"><i class="fab fa-github"></i> Code</a>
-                            <a href="#" class="btn btn-small btn-outline">Live Demo</a>
+                        <div class="project-info">
+                            <h3>Adalato - Workout App</h3>
+                            <p>Adalato is a full-featured fitness application that bridges the gap between trainers and fitness enthusiasts.</p>
+                            <div class="project-tech">
+                                <span>Dart</span>
+                                <span>Flutter</span>
+                                <span>Firebase</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/shegzibar/Adalato-main" class="btn btn-small" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> Code</a>
+                                <a href="projects.html#adalato" class="btn btn-small btn-outline">Show More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-expanded">
+                        <div class="project-gallery">
+                            <div class="gallery-main">
+                                <img src="images/projects/workout/sign_up.jpeg" alt="Dashboard" class="active">
+                            </div>
+                            <div class="gallery-thumbnails">
+                                <button class="gallery-nav-arrow prev" aria-label="Previous">❮</button>
+                                <div class="gallery-thumbnails-container">
+                                    <img src="images/projects/workout/sign_up.jpeg" alt="Sign Up" class="active">
+                                    <img src="images/projects/workout/home_screen.jpeg" alt="Home Screen">
+                                    <img src="images/projects/workout/explore_screen.jpeg" alt="Explore Screen">
+                                    <img src="images/projects/workout/weight_selection.jpeg" alt="Weight Selection">
+                                    <img src="images/projects/workout/height_selection.jpeg" alt="Height Selection">
+                                    <img src="images/projects/workout/gender_selection.jpeg" alt="Gender Selection">
+                                    <img src="images/projects/workout/lang.jpeg" alt="Language Selection">
+                                    <img src="images/projects/workout/admin_dashboard.jpeg" alt="Admin Dashboard">
+                                    <img src="images/projects/workout/analysis_dashboard.jpeg" alt="Analysis Dashboard">
+                                    <img src="images/projects/workout/add_workouts.jpeg" alt="Add Workouts">
+                                </div>
+                                <button class="gallery-nav-arrow next" aria-label="Next">❯</button>
+                            </div>
+                        </div>
+                        <div class="project-details">
+                            <h3>Adalato - Workout App</h3>
+                            <p>Adalato is a full-featured fitness application that bridges the gap between trainers and fitness enthusiasts. The platform offers robust tools for both administrators and users, creating a seamless fitness management ecosystem.</p>
+                            <h4>Admin Features:</h4>
+                            <ul>
+                                <li>Comprehensive content management for workouts, exercises, and programs</li>
+                                <li>Advanced user analytics dashboard</li>
+                                <li>Progress tracking and trend analysis</li>
+                            </ul>
+
+                            <h4>User Features:</h4>
+                            <ul>
+                                <li>Browse extensive exercise library with detailed instructions</li>
+                                <li>Save favorite exercises for quick access</li>
+                                <li>Personalized workout recommendations</li>
+                                <li>Track progress and view detailed statistics</li>
+                            </ul>
+                            <div class="project-tech">
+                                <span>Dart</span>
+                                <span>Flutter</span>
+                                <span>Firebase</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/shegzibar/Adalato-main" class="btn btn-small" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View on GitHub</a>
+                                <button class="btn btn-small btn-outline toggle-expand">Show Less</button>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+
             </div>
             <div class="text-center">
-                <a href="#" class="btn btn-outline">View All Projects</a>
+                <a href="projects.html" class="btn btn-outline">View All Projects</a>
             </div>
         </div>
     </section>
