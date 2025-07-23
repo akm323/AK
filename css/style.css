@@ -1183,7 +1183,53 @@ section {
 }
 
 /* Responsive styles */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+    /* Hero section */
+    .hero {
+        padding-top: 5px;
+    }
+    
+    .hero .container {
+        grid-template-columns: 1fr;
+        gap: 2px;
+        padding-top: 5px;
+    }
+    
+    .hero-content {
+        text-align: left !important;
+        order: 2;
+        margin-top: -30px;
+    }
+    
+    .hero-content h1,
+    .hero-content h2,
+    .hero-content p {
+        text-align: left !important;
+    }
+    
+    .cta-buttons {
+        justify-content: flex-start !important;
+    }
+    
+    /* About section */
+    .about-content {
+        text-align: left !important;
+    }
+    
+    .about-text {
+        text-align: left !important;
+    }
+    
+    /* Contact section */
+    .contact-card {
+        text-align: left !important;
+    }
+    
+    .contact-info {
+        text-align: left !important;
+    }
+    
+    /* Experience section */
     .experience-header {
         flex-direction: column;
         gap: 10px;
@@ -1195,6 +1241,24 @@ section {
     
     .experience-card {
         padding: 25px 20px;
+    }
+    
+    /* Ensure all section titles are centered */
+    .section-title {
+        text-align: center !important;
+    }
+    
+    /* Center the View All Projects button */
+    .text-center {
+        text-align: center !important;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    
+    /* Keep other section content left-aligned */
+    .container > *:not(.section-title):not(.text-center) {
+        text-align: left !important;
     }
 }
 
