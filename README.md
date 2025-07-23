@@ -27,7 +27,7 @@ A modern, responsive portfolio website built with HTML, CSS, and JavaScript. Thi
 ├── js/
 │   └── main.js            # Main JavaScript file
 ├── images/                # Image assets
-├── projects/              # Project showcase pages
+│   └── projects/          # Projects showcase pages
 ├── index.html             # Main page
 └── README.md              # This file
 ```
