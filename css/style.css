@@ -2133,6 +2133,25 @@ section {
     margin: 0.25rem 0;
 }
 
+/* Center footer text on mobile and tablet */
+@media (max-width: 991px) {
+    .footer-content {
+        text-align: center;
+        padding: 0 20px;
+    }
+    
+    .footer-content p {
+        text-align: center !important;
+        display: block !important;
+        margin: 0.5rem 0 !important;
+    }
+    
+    .footer-content p:first-child::after {
+        content: '';
+        white-space: normal;
+    }
+}
+
 .footer-logo {
     font-size: 2rem;
     font-weight: 700;
