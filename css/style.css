@@ -44,8 +44,46 @@ body {
     padding: 0 20px;
 }
 
+/* Only apply animations when js-animations class is present */
+.js-animations section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    will-change: opacity, transform;
+}
+
+.js-animations section.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.1s;
+}
+
+/* Default styles for sections without animations */
 section {
     padding: 100px 0;
+    opacity: 1;
+    transform: none;
+}
+
+/* Navigation Link Animation */
+.nav-link {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
