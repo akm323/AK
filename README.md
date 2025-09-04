@@ -1,6 +1,6 @@
 # AK Portfolio
 
-A modern, responsive portfolio website built with HTML, CSS, and JavaScript. This portfolio showcases my work, skills, and experience as a software engineer.
+A modern, responsive portfolio website built with HTML, CSS, and JavaScript. This portfolio showcases my work, skills, and experience as a software developer.
 
 ## Features
 
