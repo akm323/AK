@@ -51,7 +51,7 @@ This project is open source and available under the [MIT License](LICENSE).
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/akm323/ak_portfolio.git
+   git clone https://github.com/akm323/AK.git
    ```
 
 2. Open `index.html` in your preferred web browser.
